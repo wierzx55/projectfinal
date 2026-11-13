@@ -52,6 +52,31 @@ const cars = [
     { name: 'Toyota Alphard', type: 'รถ MPV หรู 7 ที่นั่ง', price: '8,500', image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900' }
 ];
 
+window.carCatalog = cars;
+
+const carAvailability = window.carAvailability || {};
+
+function createAvailabilityIndicator(status) {
+    const indicator = document.createElement('p');
+    indicator.className = 'car-availability';
+    indicator.dataset.status = status;
+    indicator.setAttribute('aria-live', 'polite');
+
+    const dot = document.createElement('span');
+    dot.className = 'availability-dot';
+    dot.setAttribute('aria-hidden', 'true');
+
+    const label = document.createElement('span');
+    label.textContent = status === 'available'
+        ? 'ว่าง'
+        : status === 'unavailable'
+            ? 'ไม่ว่าง'
+            : 'สอบถามสถานะ';
+
+    indicator.append(dot, label);
+    return indicator;
+}
+
 function renderCars(container, carList) {
     if (!container) {
         return;
@@ -84,6 +109,11 @@ function renderCars(container, carList) {
         const name = document.createElement('h3');
         name.textContent = car.name;
 
+        const status = carAvailability[car.name];
+        info.append(name, createAvailabilityIndicator(
+            status === 'available' || status === 'unavailable' ? status : 'unknown'
+        ));
+
         const bottom = document.createElement('div');
         bottom.className = 'car-bottom';
 
@@ -101,7 +131,7 @@ function renderCars(container, carList) {
         contact.textContent = 'ดูรายละเอียด →';
 
         bottom.append(price, contact);
-        info.append(name, bottom);
+        info.append(bottom);
         card.append(imageArea, info);
         container.append(card);
     });
@@ -122,5 +152,10 @@ if (selectedCarMessage && selectedCarCard && car) {
     document.querySelector('#selected-car-name').textContent = selectedCar;
     document.querySelector('#selected-car-type').textContent = car.type;
     document.querySelector('#selected-car-price').textContent = car.price;
+    const status = carAvailability[car.name];
+    const availability = document.querySelector('#selected-car-availability');
+    availability.replaceWith(createAvailabilityIndicator(
+        status === 'available' || status === 'unavailable' ? status : 'unknown'
+    ));
     selectedCarCard.hidden = false;
 }
