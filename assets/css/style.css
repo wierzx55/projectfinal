@@ -269,7 +269,39 @@ a {
 .car-info h3 {
     font-size: 17px;
     font-weight: 500;
-    margin-bottom: 18px;
+    margin-bottom: 8px;
+}
+
+.car-availability {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    color: #555;
+    font-size: 13px;
+}
+
+.availability-dot {
+    width: 10px;
+    height: 10px;
+    flex: 0 0 10px;
+    border-radius: 50%;
+    background: #999;
+    box-shadow: 0 0 0 3px rgba(153, 153, 153, .13);
+}
+
+.car-availability[data-status="available"] .availability-dot {
+    background: #21a35b;
+    box-shadow: 0 0 0 3px rgba(33, 163, 91, .15);
+}
+
+.car-availability[data-status="unavailable"] .availability-dot {
+    background: #d94343;
+    box-shadow: 0 0 0 3px rgba(217, 67, 67, .15);
+}
+
+.car-availability[data-status="unknown"] {
+    color: #777;
 }
 
 .car-bottom {
