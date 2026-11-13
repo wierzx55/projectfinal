@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา | AYUTTHAYA DRIVE</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="assets/js/script.js" defer></script>
+    <style>
+        .contact-area {
+            background: #f7f7f7;
+            padding: 65px 20px;
+            min-height: 70vh;
+        }
+        .contact-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 5px 30px rgba(0,0,0,.05);
+            text-align: center;
+        }
+        .contact-box h2 {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .contact-box > p {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+        .selected-car-card {
+            max-width: 560px;
+            margin: 30px auto;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+        .selected-car-card[hidden] {
+            display: none;
+        }
+        .selected-car-card img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #eee;
+        }
+        .selected-car-info {
+            padding: 20px;
+        }
+        .selected-car-info h3 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .selected-car-info p {
+            margin-top: 6px;
+            color: #888;
+            font-size: 14px;
+        }
+        .selected-car-info strong {
+            color: #b28b45;
+            font-size: 19px;
+        }
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 30px;
+        }
+        .contact-option {
+            min-width: 220px;
+            padding: 15px 24px;
+            background: #b28b45;
+            color: white;
+            transition: .3s;
+        }
+        .contact-option:hover {
+            background: #947039;
+        }
+        @media (max-width: 500px) {
+            .contact-box {
+                padding: 30px 20px;
+            }
+            .selected-car-card img {
+                height: 220px;
+            }
+            .contact-option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        <span>AYUTTHAYA</span>
+        <small>DRIVE EXPERIENCE</small>
+    </a>
+    <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="cars.html">รถยนต์ทั้งหมด</a>
+        <a href="index.html#services">บริการของเรา</a>
+        <a href="index.html#about">เกี่ยวกับเรา</a>
+    </nav>
+    <a href="contact.html" class="nav-button">ติดต่อเรา</a>
+</header>
+
+<section class="contact-area">
+    <div class="contact-box">
+        <p class="eyebrow">CONTACT US</p>
+        <h2>สนใจเช่ารถใช่ไหม?</h2>
+        <p id="selected-car">เลือกช่องทางที่สะดวก เพื่อติดต่อสอบถามรายละเอียดรถกับเรา</p>
+        <article class="selected-car-card" id="selected-car-card" hidden>
+            <img id="selected-car-image" src="" alt="">
+            <div class="selected-car-info">
+                <h3 id="selected-car-name"></h3>
+                <p id="selected-car-type"></p>
+                <p>ราคาเริ่มต้นโดยประมาณ <strong id="selected-car-price"></strong> บาท / วัน</p>
+            </div>
+        </article>
+        <p>ราคาและภาพเป็นข้อมูลประกอบ โปรดสอบถามรุ่นรถว่างและราคาจริงทางช่องทางต่อไปนี้</p>
+        <div class="contact-options">
+            <a class="contact-option" href="https://line.me/ti/p/XsVBhSZky0" target="_blank" rel="noopener noreferrer">ติดต่อทาง LINE</a>
+            <a class="contact-option" href="https://www.facebook.com/share/1KdfmYL4x2/" target="_blank" rel="noopener noreferrer">ติดต่อทาง Facebook</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">AYUTTHAYA DRIVE</div>
+    <p>บริการเช่ารถยนต์ จังหวัดพระนครศรีอยุธยา</p>
+    <p>© 2026 AYUTTHAYA DRIVE. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
